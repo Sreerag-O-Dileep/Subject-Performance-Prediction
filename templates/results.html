@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Predict-O</title>
+    
+</head>
+<style>
+    body {
+        background-image: url("https://images.unsplash.com/photo-1483444308400-fb9510501d23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80");
+        background-size: cover;
+        text-align: center;
+    }
+
+    .button {
+        background-color: #4f4f52;
+        font: bold 11px Arial;
+        text-decoration: none;
+        border: none;
+        border-radius: 18px;
+        color: white;
+        padding: 8px 16px;
+        margin: 1px 2px;
+        cursor: pointer;
+    }
+
+    .a {
+        font-size: 50px;
+        font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        margin-top: 100px;
+    }
+
+    .b {
+        font-size: 30px;
+        font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        margin-right: 150px;
+        margin-left: 150px;
+    }
+    .button:hover {
+        background-color: #5a8796;
+    }
+</style>
+
+<body>
+    <p class="a">Expecting a {{ output }} performance</p>
+    <p class="b"> {{ info }}</p>
+    <form action="x">
+        <div id="button">
+            <a href="http://127.0.0.1:8080/x" class="button">Check another result</a></div>
+    </form>
+</body>
+
+</html>

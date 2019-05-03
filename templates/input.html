@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+
+<head>
+   <title>Predict-O</title>
+</head>
+<style>
+   body {
+      background-image: url("https://images.unsplash.com/photo-1483444308400-fb9510501d23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1506&q=80");
+      background-size: cover;
+      background-attachment: fixed;
+     
+   }
+
+   .center {
+
+      padding-left: 120px;
+      font-size: 18px;
+      color:#003f53;
+      font-family: Haettenschweiler, 'Arial Narrow', sans-serif;
+   }
+
+
+
+   input[type=submit] {
+      width: 87%;
+      background-color: #0086b3;
+      color: white;
+      padding: 14px 0px;
+      margin: 20px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      
+
+
+   }
+   .submit{text-align: center;}
+
+   input[type=submit]:hover {
+      background-color: #00bfff;
+   }
+
+   input[type=text],
+   [type=number] {
+      opacity: 0.6;
+      padding: 12px 20px;
+      align-content: center;
+      margin: 2px 0;
+      width: 250px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      float: right;
+   }
+
+   select {
+      padding: 12px 20px;
+      width: 250px;
+      margin: 2px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-sizing: border-box;
+      opacity: 0.6;
+      float: right;
+   }
+   
+
+   select:hover {
+      background-color: rgb(230, 229, 243);
+   }
+
+   input:hover {
+      background-color: rgb(230, 229, 243);
+   }
+</style>
+
+<body>
+
+   <div>
+      <form action="getfile" method="POST" class="center"><b>
+            <table align="center" cellpadding="5">
+               <tr>
+                  <td>
+                     <label class="x" for="name">School type:</label>
+                     <select name="user_school">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="0">State</option>
+                        <option value="1">Cbse</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name">Sex:</label>
+                     <select name="user_sex">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">Male</option>
+                        <option value="0">Female</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name">Age:</label>
+                     <input type="number" min="15" max="22" id="name" name="user_age"
+                        placeholder="Age between 15&22...">
+                  </td>
+                  <td>
+                     <label for="name">Address Type:</label>
+                     <select name="user_addresstype">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="0">Urban</option>
+                        <option value="1">Rural</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name">Family Size:</label>
+                     <select name="user_familysize">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">less or equal to 3 </option>
+                        <option value="0">greater than 3</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name">Parent's cohabitation status:</label>
+                     <select name="user_cohabitation">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">living together </option>
+                        <option value="0">Apart</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name">Mother's education:</label>
+                     <select name="user_mothereducation">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="0">none</option>
+                        <option value="1">primary education</option>
+                        <option value="2">upper primary education</option>
+                        <option value="3">secondary education</option>
+                        <option value="4">higher education</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name">Father's education:</label>
+                     <select name="user_fathereducation">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="0">none</option>
+                        <option value="1">primary education</option>
+                        <option value="2">upper primary education</option>
+                        <option value="3">secondary education</option>
+                        <option value="4">higher education</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name">Mother's job:</label>
+                     <select name="user_motherjob">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="4">teacher</option>
+                        <option value="1">health care related</option>
+                        <option value="0">at_home</option>
+                        <option value="3">civil services</option>
+                        <option value="2">other</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name">Father's job:</label>
+                     <select name="user_fatherjob">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="0">teacher</option>
+                        <option value="3">health care related</option>
+                        <option value="4">at_home</option>
+                        <option value="2">civil services</option>
+                        <option value="1">other</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name"> Reason to choose this school :</label>
+                     <select name="user_schoolchoose">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="2">close to home</option>
+                        <option value="3">school reputation</option>
+                        <option value="0">course preference</option>
+                        <option value="1">other</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name">Guardian:</label>
+                     <select name="user_guardian">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="0">mother</option>
+                        <option value="1">father</option>
+                        <option value="2">other</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name">Traveltime:</label>
+                     <select name="user_traveltime">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">less than 15 min </option>
+                        <option value="2">15 to 30 min</option>
+                        <option value="3">30 min to 1 hour</option>
+                        <option value="4">more than 1 hour</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name">Studytime:</label>
+                     <select name="user_studytime">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">less than 2 hours </option>
+                        <option value="2">2 to 5 hours</option>
+                        <option value="3">5 to 10 hours</option>
+                        <option value="4">more than 10 hours</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name">Failures:</label>
+                     <select name="user_failures">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">1 failure </option>
+                        <option value="2">2 failures</option>
+                        <option value="3">3 failures</option>
+                        <option value="4">more than 3 failures</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name">Extra educational support:</label>
+                     <select name="user_schoolsupport">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="0">yes</option>
+                        <option value="1">no</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name"> Family educational support:</label>
+                     <select name="user_familysupport">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">yes</option>
+                        <option value="0">no</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name"> Extra paid classes :</label>
+                     <select name="user_paidclasses">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">yes</option>
+                        <option value="0">no</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name"> Extra-curricular activities:</label>
+                     <select name="user_extraactivities">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">yes</option>
+                        <option value="0">no</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name"> Attended nursery school:</label>
+                     <select name="user_attendednursery">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="0">yes</option>
+                        <option value="1">no</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name"> Wants to take higher education:</label>
+                     <select name="user_highereducation">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="0">yes</option>
+                        <option value="1">no</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name"> Internet access at home:</label>
+                     <select name="user_internetaccess">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">yes</option>
+                        <option value="0">no</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name"> In a romantic relationship:</label>
+                     <select name="user_romantic">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">yes</option>
+                        <option value="0">no</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name"> Quality of family relationships:</label>
+                     <select name="user_familyrelation">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">very bad</option>
+                        <option value="2">bad</option>
+                        <option value="3">satisfactory</option>
+                        <option value="4">good</option>
+                        <option value="5">very good</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name"> Free time after school:</label>
+                     <select name="user_freetime">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">very low</option>
+                        <option value="2">low</option>
+                        <option value="3">satisfactory</option>
+                        <option value="4">high</option>
+                        <option value="5">very high</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name"> Going out with friends:</label>
+                     <select name="user_goingout">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">very low</option>
+                        <option value="2">low</option>
+                        <option value="3">satisfactory</option>
+                        <option value="4">high</option>
+                        <option value="5">very high</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name">Workday alcohol consumption:</label>
+                     <select name="user_workalcohol">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">very low</option>
+                        <option value="2">low</option>
+                        <option value="3">satisfactory</option>
+                        <option value="4">high</option>
+                        <option value="5">very high</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name">Weekend alcohol consumption:</label>
+                     <select name="user_weekalcohol">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">very low</option>
+                        <option value="2">low</option>
+                        <option value="3">satisfactory</option>
+                        <option value="4">high</option>
+                        <option value="5">very high</option>
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name">Current health status:</label>
+                     <select name="user_health">
+                        <option disabled selected value> -- select an option -- </option>
+                        <option value="1">very bad</option>
+                        <option value="2">bad</option>
+                        <option value="3">satisfactory</option>
+                        <option value="4">good</option>
+                        <option value="5">very good</option>
+                     </select>
+                  </td>
+                  <td>
+                     <label for="name">Attendence:</label>
+                     <input type="number" min="0" max="100" id="name" name="user_attendence"
+                        placeholder="attendence between 0 & 100...">
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label for="name">First series mark:</label>
+                     <input type="number" min="0" max="20" id="name" name="user_s1"
+                        placeholder="Mark between 0 & 20...">
+                  </td>
+                  <td>
+                     <label for="name">Second series mark:</label>
+                     <input type="number" min="0" max="20" id="name" name="user_s2"
+                        placeholder="Mark between 0 & 20...">
+                  </td>
+               </tr>
+         </b>
+         </table>
+         <div class="submit">
+         <input type="submit" value="Submit"></div>
+   </div>
+</body>
+
+</html>
